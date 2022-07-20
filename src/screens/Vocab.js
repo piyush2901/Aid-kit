@@ -1,0 +1,106 @@
+import React, {useState} from 'react';
+import {
+  View,
+  ScrollView,
+  TextInput,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+} from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import {vocab} from '../components/data';
+const Vocab = ({navigation}) => {
+  const [searchItem, setSearchItem] = useState('');
+
+  return (
+    <ScrollView style={{backgroundColor: 'white'}}>
+      <View style={styles.header}>
+        <Text style={styles.headerText}>Know diseases better</Text>
+      </View>
+      <View style={styles.searchBar}>
+        <Icon name="search" size={25} style={{paddingRight: 15}} />
+        <TextInput
+          placeholder="Search here"
+          onChangeText={text => {
+            setSearchItem(text);
+          }}
+          style={{flex: 1, padding: 0}}
+          placeholderTextColor="#000"></TextInput>
+        <Icon name="mic" size={25} />
+      </View>
+      <View style={{marginTop: 25}}>
+        {vocab &&
+          vocab
+            .filter(val => {
+              if (searchItem === '') {
+                return val;
+              } else if (
+                val.title.toLowerCase().includes(searchItem.toLowerCase())
+              ) {
+                return val;
+              }
+            })
+            .map((val, index) => {
+              return (
+                <TouchableOpacity
+                  style={styles.item}
+                  key={index}
+                  onPress={() => navigation.navigate('Medicine')}>
+                  <Text style={styles.title}>{val.title}</Text>
+                  <Text style={styles.content}>{val.desc}</Text>
+                </TouchableOpacity>
+              );
+            })}
+      </View>
+    </ScrollView>
+  );
+};
+
+export default Vocab;
+
+const styles = StyleSheet.create({
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 30,
+  },
+  headerText: {
+    fontSize: 24,
+    color: 'black',
+  },
+  searchBar: {
+    marginTop: 40,
+    flexDirection: 'row',
+    backgroundColor: '#FFF',
+    alignSelf: 'center',
+    borderRadius: 5,
+    borderWidth: 0.25,
+    shadowOffset: {width: 0, height: 3},
+    shadowOpacity: 0.5,
+    shadowRadius: 5,
+    shadowColor: '#ccc',
+    padding: 10,
+    elevation: 10,
+    margin: 5,
+  },
+  item: {
+    backgroundColor: '#FFF',
+    margin: 5,
+    padding: 10,
+    borderRadius: 5,
+    shadowOffset: {width: 0, height: 3},
+    shadowOpacity: 0.5,
+    shadowRadius: 5,
+    shadowColor: '#ccc',
+    elevation: 10,
+  },
+  title: {
+    fontSize: 18,
+    fontWeight: '400',
+    marginBottom: 3,
+  },
+  content: {
+    fontSize: 13,
+  },
+});
