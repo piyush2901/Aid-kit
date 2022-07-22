@@ -8,6 +8,7 @@ import {
   Text,
   SafeAreaView,
   ScrollView,
+  StatusBar,
 } from 'react-native';
 import Disclaimer from '../components/Disclaimer';
 import {homeCards} from '../components/data';
@@ -15,7 +16,8 @@ import {features} from '../components/data';
 
 const Home = ({navigation}) => {
   return (
-    <SafeAreaView style={{backgroundColor: '#DDF6FE', height: '100%'}}>
+    <SafeAreaView style={{backgroundColor: '#FFF', flex: 1}}>
+      <StatusBar backgroundColor="white" barStyle="dark-content" />
       <ScrollView>
         <Disclaimer />
         <View style={{paddingHorizontal: 15}}>
@@ -73,12 +75,7 @@ const Home = ({navigation}) => {
                 borderBottomRightRadius: 10,
               }}
               onPress={() => navigation.navigate('Categories')}>
-              <Text style={{fontWeight: 'bold'}}>View All</Text>
-              {/*<Icon
-                name="arrow-forward"
-                size={15}
-                style={{marginVertical: 2}}
-            />*/}
+              <Text style={{fontWeight: 'bold', color: '#000'}}>View All</Text>
             </TouchableOpacity>
           </View>
           <View
@@ -86,6 +83,7 @@ const Home = ({navigation}) => {
               flexDirection: 'row',
               justifyContent: 'space-between',
               flexWrap: 'wrap',
+              marginTop: 15,
             }}>
             {features &&
               features.map((val, index) => {
@@ -116,13 +114,19 @@ const Home = ({navigation}) => {
               })}
           </View>
         </View>
-        <View style={{alignItems: 'flex-end', marginRight: 10, marginTop: 40}}>
+        <View
+          style={{
+            alignItems: 'flex-end',
+            marginHorizontal: 10,
+            marginTop: 40,
+            padding: 5,
+          }}>
           <TouchableOpacity
             style={styles.callbtn}
             onPress={() => navigation.navigate('Emergency')}>
             <View style={styles.callIcon}>
               <Image
-                source={require('../assets/images/phone.png')}
+                source={require('../assets/images/call.png')}
                 style={{marginTop: 12.5}}
               />
             </View>
@@ -144,10 +148,10 @@ const styles = StyleSheet.create({
   },
   headerText: {
     fontSize: 25,
-    fontWeight: 'bold',
-    fontFamily: 'Roboto',
+    fontWeight: '600',
+    fontFamily: 'Raleway-SemiBold',
     marginTop: 25,
-    color: '#1986EA',
+    color: '#000',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -188,7 +192,7 @@ const styles = StyleSheet.create({
     elevation: 10,
   },
   cardText: {
-    color: '#04429F',
+    color: '#000',
     margin: 5,
   },
   cardImage: {
@@ -211,10 +215,11 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   callbtn: {
-    backgroundColor: '#0C75C8',
+    backgroundColor: '#32C80C',
     width: 55,
     height: 55,
     borderRadius: 55,
+    elevation: 2,
   },
   callIcon: {
     alignSelf: 'center',

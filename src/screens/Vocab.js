@@ -13,7 +13,7 @@ const Vocab = ({navigation}) => {
   const [searchItem, setSearchItem] = useState('');
 
   return (
-    <ScrollView style={{backgroundColor: 'white'}}>
+    <ScrollView style={{backgroundColor: '#FFF', padding: 5, flex: 1}}>
       <View style={styles.header}>
         <Text style={styles.headerText}>Know diseases better</Text>
       </View>
@@ -40,6 +40,7 @@ const Vocab = ({navigation}) => {
                 return val;
               }
             })
+            .sort((a, b) => a.title.toLowerCase() > b.title.toLowerCase())
             .map((val, index) => {
               return (
                 <TouchableOpacity
@@ -66,8 +67,9 @@ const styles = StyleSheet.create({
     marginTop: 30,
   },
   headerText: {
-    fontSize: 24,
+    fontSize: 25,
     color: 'black',
+    fontFamily: 'Raleway-SemiBold',
   },
   searchBar: {
     marginTop: 40,
@@ -82,11 +84,12 @@ const styles = StyleSheet.create({
     shadowColor: '#ccc',
     padding: 10,
     elevation: 10,
-    margin: 5,
+    marginHorizontal: 10,
   },
   item: {
     backgroundColor: '#FFF',
-    margin: 5,
+    marginHorizontal: 10,
+    marginVertical: 5,
     padding: 10,
     borderRadius: 5,
     shadowOffset: {width: 0, height: 3},

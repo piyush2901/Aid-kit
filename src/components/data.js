@@ -301,9 +301,35 @@ export const general = {
   ],
   cat: [
     {
-      title: 'Dangers if any',
+      title: 'Look out for dangers',
       body: 'Check for danger to Yourself / Bystanders / Victims.Also ensure if the area is safe of any potential hazards.',
-      imgUrl: require('../assets/images/recovery1.png'),
+      imgUrl: require('../assets/images/survey.png'),
+    },
+    {
+      title: 'Stop the bleeding',
+      body: 'In case of bleeding,stop the bleeding by putting direct pressure on the wound.',
+      imgUrl: require('../assets/images/stop-blood.jpg'),
+    },
+    {
+      title: 'Avoid direct contact',
+      body: "Make sure to wash your hands and cover them using clean plastic bag or gloves.Try to avoid coming in contact with patient's blood",
+      imgUrl: require('../assets/images/dogbite.png'),
+    },
+    {
+      title: 'Wash the wound',
+      body: 'Flush the bite wound with clean water and soap (if available) for 10-15 minutes.',
+      imgUrl: require('../assets/images/wash-wound.jpg'),
+    },
+    {
+      title: 'Cover the wound',
+      body: 'Apply an anti-bacterial ointment on the bite area.Cover the wound with a clean and dry cloth.',
+      imgUrl: require('../assets/images/coverwound.jpg'),
+    },
+
+    {
+      title: 'Call 108 ambulance',
+      body: 'Always refer the person to a healthcare facility immediately for further treatment if possible exposure to rabies is suspected',
+      imgUrl: require('../assets/images/108.png'),
     },
   ],
   breathe: [
@@ -530,28 +556,32 @@ export const allFirstAids = [
 
 export const vocab = [
   {
-    title:'Name',
+    title:'Diarrhea',
     desc:'Here is some example text that may answer an FAQ or give the user some helpful advice',
   },
   {
-    title:'Name',
+    title:'Influenza',
     desc:'Here is some example text that may answer an FAQ or give the user some helpful advice',
   },
   {
-    title:'Name',
+    title:'Arthritis',
     desc:'Here is some example text that may answer an FAQ or give the user some helpful advice',
   },
   {
-    title:'Name',
+    title:'Cholera',
     desc:'Here is some example text that may answer an FAQ or give the user some helpful advice',
   },{
-    title:'Name',
+    title:'Tuberculosis',
     desc:'Here is some example text that may answer an FAQ or give the user some helpful advice',
   },{
-    title:'Name',
+    title:'Allergy',
     desc:'Here is some example text that may answer an FAQ or give the user some helpful advice',
   },{
-    title:'Name',
+    title:'Typhoid',
+    desc:'Here is some example text that may answer an FAQ or give the user some helpful advice',
+  },
+  {
+    title:'Sinusitis',
     desc:'Here is some example text that may answer an FAQ or give the user some helpful advice',
   },
 ]

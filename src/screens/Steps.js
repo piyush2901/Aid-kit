@@ -6,7 +6,7 @@ import {general} from '../components/data.js';
 const Steps = ({navigation, route}, props) => {
   const {category} = route.params;
   return (
-    <SafeAreaView style={{flex: 1, paddingTop: 50}}>
+    <SafeAreaView style={{flex: 1, paddingTop: 50,backgroundColor:'white'}}>
       <View style={{flex: 1, flexDirection: 'row', justifyContent: 'center'}}>
         {category !== null && <CarouselCard data={general[category]} />}
       </View>

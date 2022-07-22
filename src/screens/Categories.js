@@ -15,13 +15,13 @@ const Categories = ({navigation}) => {
   const [searchItem, setSearchItem] = useState('');
 
   return (
-    <ScrollView style={{padding: 5}}>
+    <ScrollView style={{padding: 5, backgroundColor: '#FFF'}}>
       <View style={styles.searchBar}>
         <Icon name="search" size={25} style={{paddingRight: 15}} />
         <TextInput
-          placeholder="Search here"
-          onChangeText={(text) => {
-            setSearchItem(text)
+          placeholder="What topic are you looking for?"
+          onChangeText={text => {
+            setSearchItem(text);
           }}
           style={{flex: 1, padding: 0}}
           placeholderTextColor="#000"></TextInput>
@@ -29,7 +29,7 @@ const Categories = ({navigation}) => {
       </View>
       <View
         style={{
-          marginTop: 10,
+          marginTop: 35,
           flexDirection: 'row',
           justifyContent: 'space-evenly',
           flexWrap: 'wrap',
@@ -53,7 +53,7 @@ const Categories = ({navigation}) => {
                     navigation.navigate('Steps', {category: val.tag})
                   }
                   key={index}
-                  style={styles.card}>
+                  style={[styles.card, styles.shadowProp]}>
                   <Image
                     source={val.imgUrl}
                     style={styles.cardImage}
@@ -72,7 +72,7 @@ export default Categories;
 
 const styles = StyleSheet.create({
   searchBar: {
-    marginTop: 30,
+    marginTop: 50,
     flexDirection: 'row',
     backgroundColor: '#FFF',
     alignSelf: 'center',
@@ -83,6 +83,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.5,
     shadowRadius: 5,
     padding: 10,
+    marginHorizontal: 10,
     elevation: 10,
   },
   card: {
@@ -93,10 +94,17 @@ const styles = StyleSheet.create({
     margin: 3,
     justifyContent: 'center',
     alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
+    elevation:10,
+  },
+  shadowProp: {
+    shadowColor: '#171717',
+    shadowOffset: {width: -2, height: 4},
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
+    elevation: 3,
+  },
+  cardText: {
+    color: '#000',
+    margin:5,
   },
 });

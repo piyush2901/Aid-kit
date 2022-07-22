@@ -1,32 +1,38 @@
 import React from 'react';
 import {View, Text, Image, StyleSheet} from 'react-native';
 
-const Medicines = () => {
+const Details = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.header}>Title</Text>
       <View style={styles.image}>
         <Image source={require('../assets/images/video.png')} />
       </View>
+      <Text style={{marginTop: 35, marginHorizontal: 10, fontSize: 15}}>
+        Here is some example text that may answer an FAQ or give the user some
+        helpful advice
+      </Text>
     </View>
   );
 };
 
-export default Medicines;
+export default Details;
 
 const styles = StyleSheet.create({
   container: {
-    padding:5,
-    margin: 5,
+    padding: 5,
+    flex: 1,
+    backgroundColor: '#FFF',
   },
   header: {
     fontSize: 25,
     fontWeight: '400',
-    marginTop: 5,
+    marginTop: 35,
+    marginHorizontal: 10,
   },
   image: {
     alignItems: 'center',
-    marginTop:50,
+    marginTop: 35,
     justifyContent: 'center',
     display: 'flex',
   },
