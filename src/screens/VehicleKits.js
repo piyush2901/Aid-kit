@@ -6,7 +6,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 const VehicleKits = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>Select a type of Vehicle Kit</Text>
+      <Text style={styles.header}>Select a type of vehicle kit</Text>
       <View style={{marginTop: 30, margin: 5}}>
         {vehicleTypes &&
           vehicleTypes.map((val, index) => {
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFF',
     marginHorizontal: 10,
     marginVertical: 5,
-    padding: 20,
+    padding: 25,
     borderRadius: 5,
     shadowOffset: {width: 0, height: 3},
     shadowOpacity: 0.5,

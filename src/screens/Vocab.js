@@ -17,7 +17,7 @@ const Vocab = ({navigation, route}, props) => {
   return (
     <ScrollView style={{backgroundColor: '#FFF', padding: 5, flex: 1}}>
       <View style={styles.header}>
-        <Text style={styles.headerText}>Know diseases better</Text>
+        <Text style={styles.headerText}>Know medical terms better</Text>
       </View>
       <View style={styles.searchBar}>
         <Icon name="search" size={25} style={{paddingRight: 15}} />
