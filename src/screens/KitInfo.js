@@ -1,10 +1,12 @@
 import React, {useState} from 'react';
-import {View, Text, StyleSheet, FlatList} from 'react-native';
+import {View, Text, StyleSheet, FlatList, SafeAreaView} from 'react-native';
 import CheckBox from '@react-native-community/checkbox';
-import {kitItems} from '../components/data';
-import {Progress, Center, Box, NativeBaseProvider} from 'native-base';
-export default function KitInfo() {
-  const [items, setItems] = useState(kitItems);
+import {kitTypes} from '../components/data';
+import {Progress, NativeBaseProvider} from 'native-base';
+
+export default function KitInfo({navigation, route}, props) {
+  const {oftype} = route.params;
+  const [items, setItems] = useState(kitTypes[oftype]);
   const [checkedItems, setCheckedItems] = useState([]);
 
   const renderFlatList = (renderData, checked) => {
@@ -47,7 +49,7 @@ export default function KitInfo() {
 
   return (
     <NativeBaseProvider>
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <Text style={styles.headerText}>
           Choose the items that you want to include in your kit
         </Text>
@@ -72,7 +74,7 @@ export default function KitInfo() {
           Selected items : {checkedItems.length}
         </Text>
         <View>{renderFlatList(checkedItems, false)}</View>
-      </View>
+      </SafeAreaView>
     </NativeBaseProvider>
   );
 }

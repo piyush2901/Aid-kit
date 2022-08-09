@@ -21,6 +21,33 @@ const Home = ({navigation}) => {
       <ScrollView>
         <Disclaimer />
         <View style={{paddingHorizontal: 15}}>
+          <Image
+            source={require('../assets/images/Half-Circle.png')}
+            style={styles.backgroundImage}
+          />
+          <Image
+            source={require('../assets/images/backgroundShape.png')}
+            style={styles.backgroundImage}
+          />
+          <Image
+            source={require('../assets/images/blob.png')}
+            style={{
+              position: 'absolute',
+              top: 390,
+              left: 5,
+              bottom: 0,
+              right: 0,
+            }}
+          />
+          <Image
+            source={require('../assets/images/Group.png')}
+            style={{
+              position: 'absolute',
+              top: 65,
+              left: 306,
+            }}
+          />
+
           <View style={styles.header}>
             <Text style={styles.headerText}>Get Treatment fast !</Text>
           </View>
@@ -103,7 +130,7 @@ const Home = ({navigation}) => {
                         style={{
                           marginTop: 15,
                           fontFamily: 'Roboto',
-                          color: 'white',
+                          color: '#000',
                           fontSize: 18,
                         }}>
                         {val.title}
@@ -124,15 +151,28 @@ const Home = ({navigation}) => {
           <TouchableOpacity
             style={styles.callbtn}
             onPress={() => navigation.navigate('Emergency')}>
-            <View style={styles.callIcon}>
-              <Image
-                source={require('../assets/images/call.png')}
-                style={{marginTop: 12.5}}
-              />
-            </View>
+            <Text style={{fontSize: 25, color: '#FFF'}}>Get help!</Text>
+            <Image source={require('../assets/images/call.png')} />
           </TouchableOpacity>
         </View>
       </ScrollView>
+      <Image
+        source={require('../assets/images/pattern.png')}
+        style={{
+          position: 'absolute',
+          top: 600,
+          left: 135,
+          bottom: 0,
+        }}
+      />
+      <Image
+        source={require('../assets/images/Group.png')}
+        style={{
+          position: 'absolute',
+          top: 625,
+          left: 5,
+        }}
+      />
     </SafeAreaView>
   );
 };
@@ -146,6 +186,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     margin: 20,
   },
+  semiCircle: {},
   headerText: {
     fontSize: 25,
     fontWeight: '600',
@@ -159,7 +200,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
     borderRadius: 10,
     height: 260,
-    backgroundColor: '#0C75C8',
+    backgroundColor: 'rgb(18, 124, 208)',
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -200,7 +241,7 @@ const styles = StyleSheet.create({
     marginTop: 5,
   },
   category: {
-    backgroundColor: '#0C75C8',
+    backgroundColor: '#E4FDEB',
     borderRadius: 5,
     width: '47%',
     height: 168,
@@ -216,12 +257,23 @@ const styles = StyleSheet.create({
   },
   callbtn: {
     backgroundColor: '#32C80C',
-    width: 55,
+    width: 167,
     height: 55,
     borderRadius: 55,
+    padding: 10,
     elevation: 2,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
   },
   callIcon: {
     alignSelf: 'center',
+  },
+  backgroundImage: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0,
+    opacity: 0.5,
   },
 });

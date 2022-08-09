@@ -1,5 +1,12 @@
 import React, {useState} from 'react';
-import {View, Modal, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Modal,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  BackHandler,
+} from 'react-native';
 
 const Disclaimer = () => {
   const [modalVisible, setModalVisible] = useState(true);
@@ -21,12 +28,29 @@ const Disclaimer = () => {
               measures. Also we are not liable for any actions or reactions
               performed on the basis of this information.
             </Text>
-            <TouchableOpacity
-              style={[styles.button, styles.buttonOpen, styles.buttonClose]}
-              onPress={() => setModalVisible(false)}
-              title="Close modal">
-              <Text style={styles.btnText}>Close Modal</Text>
-            </TouchableOpacity>
+            <View
+              style={{flexDirection: 'row', justifyContent: 'space-around'}}>
+              <TouchableOpacity
+                style={[
+                  styles.button,
+                  styles.buttonOpen,
+                  styles.buttonClose,
+                  styles.acceptbtn,
+                ]}
+                onPress={() => setModalVisible(false)}>
+                <Text style={styles.btnText}>I Accept</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={[
+                  styles.button,
+                  styles.buttonOpen,
+                  styles.buttonClose,
+                  styles.declinebtn,
+                ]}
+                onPress={() => BackHandler.exitApp()}>
+                <Text style={styles.btnText}>Decline</Text>
+              </TouchableOpacity>
+            </View>
           </View>
         </View>
       </Modal>
@@ -48,13 +72,13 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     borderRadius: 10,
     padding: 25,
-    alignItems: 'center',
   },
   button: {
     borderRadius: 5,
     padding: 10,
     elevation: 2,
     marginTop: 15,
+    width: 95,
   },
   buttonOpen: {
     backgroundColor: '#F194FF',
@@ -66,6 +90,12 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: 'bold',
     textAlign: 'center',
+  },
+  acceptbtn: {
+    backgroundColor: '#32C80C',
+  },
+  declinebtn: {
+    backgroundColor: '#FF2D2D',
   },
   textStyle: {
     fontWeight: 'bold',

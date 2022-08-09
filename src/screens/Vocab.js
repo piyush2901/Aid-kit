@@ -8,8 +8,10 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import {vocab} from '../components/data';
-const Vocab = ({navigation}) => {
+import {medicalVocab} from '../components/data';
+const Vocab = ({navigation, route}, props) => {
+  const {vocabType} = route.params;
+  const data = medicalVocab[vocabType];
   const [searchItem, setSearchItem] = useState('');
 
   return (
@@ -29,8 +31,8 @@ const Vocab = ({navigation}) => {
         <Icon name="mic" size={25} />
       </View>
       <View style={{marginTop: 25}}>
-        {vocab &&
-          vocab
+        {data &&
+          data
             .filter(val => {
               if (searchItem === '') {
                 return val;
@@ -46,7 +48,7 @@ const Vocab = ({navigation}) => {
                 <TouchableOpacity
                   style={styles.item}
                   key={index}
-                  onPress={() => navigation.navigate('Medicine')}>
+                  onPress={() => navigation.navigate('Details', {item: val})}>
                   <Text style={styles.title}>{val.title}</Text>
                   <Text style={styles.content}>{val.desc}</Text>
                 </TouchableOpacity>
@@ -97,6 +99,7 @@ const styles = StyleSheet.create({
     shadowRadius: 5,
     shadowColor: '#ccc',
     elevation: 10,
+    height: 85,
   },
   title: {
     fontSize: 18,
@@ -105,5 +108,6 @@ const styles = StyleSheet.create({
   },
   content: {
     fontSize: 13,
+    textAlign: 'justify',
   },
 });

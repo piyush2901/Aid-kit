@@ -1,5 +1,13 @@
 import React from 'react';
-import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  ScrollView,
+  SafeAreaView,
+  TouchableOpacity,
+  Image,
+} from 'react-native';
 
 const Emergency = () => {
   return (
@@ -40,7 +48,7 @@ const styles = StyleSheet.create({
     height: 40,
     alignItems: 'center',
     justifyContent: 'space-around',
-    padding: 10,
+    padding: 8,
     elevation: 3,
     borderRadius: 5,
   },
